@@ -45,7 +45,7 @@ void duplicates()
       if (p->data == a->data)
       {
         b->NAdd = a->NAdd;
-        // free(a);
+        free(a);
         k++;
         a = b;
       }
@@ -76,6 +76,7 @@ void printLL()
 int main()
 {
   createLinkedList();
+  printLL();
   duplicates();
   printLL();
 }
