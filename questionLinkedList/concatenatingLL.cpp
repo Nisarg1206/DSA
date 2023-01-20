@@ -96,7 +96,7 @@ void concatenatingLL(node *p,node *q,node *r)
     {
             p = p->NAdd;
     }
-    while (q->NAdd!=NULL)
+    while (q!=NULL)
     {
             p->NAdd = q;
             p = q;
