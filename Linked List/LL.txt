@@ -1,0 +1,9 @@
+Linked List
+
+singly linked list is one way traverse possible 
+doubly linked list is two way traverse possible
+
+SAB KUCH ORDER OF N HAI means delete,insert,traverse
+
+
+best Linked list order is circular linked list hai
