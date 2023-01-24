@@ -29,7 +29,7 @@ void createLL()
         cout << "Do you want to add more node in LL(0/1)" << endl;
         cin >> t;
     }
-    tail->NAdd = head->NAdd->NAdd;
+    tail->NAdd = head->NAdd;
 }
 
 // For printing linked list
@@ -106,7 +106,7 @@ void removeLoop()
     do
     {
         p = p->NAdd;
-    } while (q != p);
+    } while (q != p->NAdd);
     p->NAdd = NULL;
 }
 
