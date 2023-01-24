@@ -29,6 +29,7 @@ void createLL()
         cout << "Do you want to add more node in LL(0/1)" << endl;
         cin >> t;
     }
+    tail->NAdd = head->NAdd->NAdd;
 }
 
 // For printing linked list
@@ -64,9 +65,30 @@ void flyodAlgo()
     }
 }
 
+void getFirstOfLoop()
+{
+    node *p, *q;
+    q = head;
+    p = head;
+    do
+    {
+        q = q->NAdd;
+        p = p->NAdd;
+        p = p!=NULL ? p->NAdd : NULL;
+    } while ((p != NULL && q != NULL) && p != q);
+    p = head;
+    while(p!=q)
+    {
+        p = p->NAdd;
+        q = q->NAdd;
+    }
+    cout << "Starting point for loop is " << p->data << endl;
+}
+
 int main()
 {
     createLL();
-    printLinkedList();
+    // printLinkedList();
     flyodAlgo();
+    getFirstOfLoop();
 }
