@@ -37,11 +37,11 @@ void printLinkedList()
 {
   node *temp = head;
   cout << "Linked List are" << endl;
-  while (temp != NULL)
+  do
   {
     cout << temp->data << endl;
     temp = temp->NAdd;
-  }
+  } while (temp != NULL);
 }
 
 void flyodAlgo()
@@ -85,10 +85,40 @@ void getFirstOfLoop()
     cout << "Starting point for loop is " << p->data << endl;
 }
 
+
+void removeLoop()
+{
+    node *p, *q;
+    q = head;
+    p = head;
+    do
+    {
+        q = q->NAdd;
+        p = p->NAdd;
+        p = p!=NULL ? p->NAdd : NULL;
+    } while ((p != NULL && q != NULL) && p != q);
+    p = head;
+    while(p!=q)
+    {
+        p = p->NAdd;
+        q = q->NAdd;
+    }
+    do
+    {
+        p = p->NAdd;
+    } while (q != p);
+    p->NAdd = NULL;
+}
+
+
 int main()
 {
     createLL();
-    // printLinkedList();
+    
     flyodAlgo();
+    // printLinkedList();
     getFirstOfLoop();
+    removeLoop();
+    flyodAlgo();
+    printLinkedList();
 }
