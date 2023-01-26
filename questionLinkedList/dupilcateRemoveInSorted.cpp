@@ -35,24 +35,22 @@ void printLL(node *temp)
 {
     //  = head;
     cout << "Linked List are" << endl;
-    while (temp != NULL)  
+    while (temp != NULL)
     {
         cout << temp->data << endl;
         temp = temp->NAdd;
     }
 }
 
-
 // node * uniqueSortedList(node * head) {
 //    	//empty List
 //     if(head == NULL)
 //         return NULL;
-    
+
 //     //non empty list
 //     node* curr = head;
-    
+
 //     while(curr != NULL) {
-        
 //         if( (curr -> NAdd != NULL) && curr -> data == curr -> NAdd -> data) {
 //             node* next_next = curr ->NAdd -> NAdd;
 //             node* nodeToDelete = curr -> NAdd;
@@ -62,18 +60,17 @@ void printLL(node *temp)
 //         else //not equal
 //         {
 //             curr = curr -> NAdd;
-//         }   
+//         }
 //     }
-    
-//     return head; 
+
+//     return head;
 // }
 
-void duplicateSorted()
+node * duplicateSorted(node *p )
 {
-    node *p = head;
     while (p != NULL)
     {
-        if (p->data == p->NAdd->data && (p->NAdd != NULL))
+        if ((p->NAdd != NULL) && p->data == p->NAdd->data)
         {
             node *a = p->NAdd;
             node *b = p->NAdd->NAdd;
@@ -82,16 +79,17 @@ void duplicateSorted()
         }
         else
         {
-            p = p->NAdd;
+             p = p->NAdd;
         }
     }
+    return head;
 }
 
 int main()
 {
     createLL();
     printLL(head);
-    duplicateSorted();
+    node *p=duplicateSorted(head);
     // node *p=uniqueSortedList(head);
     printLL(head);
 }
