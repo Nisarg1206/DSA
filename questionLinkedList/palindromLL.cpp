@@ -35,9 +35,8 @@ void createLL()
 class solution
 {
 public:
-    bool CheckPalindrome(node *T)
+    bool CheckPalindrome(node *p)
     {
-        node *p = T;
         vector<int> arr;
         while (p != NULL)
         {
@@ -62,6 +61,27 @@ private:
         }
         return 1;
     }
+};
+
+class solution2
+{
+public:
+    void checkPalindrome(node *&p)
+    {
+        node *a = head;
+        node *b = head;
+        while(a!=NULL)
+        {
+            a = a->NAdd->NAdd;
+            b = b->NAdd;
+        }
+        reverseLL(b);
+    }
+private:
+void reverseLL(node *&t)
+{
+    
+}
 };
 
 // Printing Linked List
