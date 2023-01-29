@@ -66,22 +66,48 @@ private:
 class solution2
 {
 public:
-    void checkPalindrome(node *&p)
+    bool checkPalindrome(node *&p)
     {
         node *a = head;
         node *b = head;
-        while(a!=NULL)
+        while (a != NULL && a->NAdd!=NULL)
         {
             a = a->NAdd->NAdd;
             b = b->NAdd;
         }
         reverseLL(b);
+        int k = compareLL(b);
+        reverseLL(b);
+        return k;
     }
+
 private:
-void reverseLL(node *&t)
-{
-    
-}
+    void reverseLL(node *t)
+    {
+        node *a=NULL;
+        node *b = t;
+        node *c = NULL;
+        while(a!=NULL)
+        {
+            c = b->NAdd;
+            b->NAdd = a;
+            a = b;
+            b = c;
+        }
+    }
+
+    bool compareLL(node *p)
+    {
+        node *a = head, *b = p->NAdd;
+        while (a <= p && b != NULL)
+        {
+            if (a->data != b->data)
+            {
+                return 0;
+            }
+        }
+        return 1;
+    }
 };
 
 // Printing Linked List
@@ -99,8 +125,8 @@ int main()
 {
     createLL();
     printLL(head);
-    solution check;
-    int p = check.CheckPalindrome(head);
+    solution2 check;
+    int p = check.checkPalindrome(head);
     if (p)
     {
         cout << "Palindrome Number" << endl;
