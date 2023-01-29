@@ -6,7 +6,7 @@ class Node
 public:
     int data;
     Node *next;
-} *head = NULL, *tail = NULL,*third=NULL,*tail3=NULL,*tail2=NULL,*head2=NULL;
+} *head = NULL, *tail = NULL, *third = NULL, *tail3 = NULL, *tail2 = NULL, *head2 = NULL;
 
 void createLL()
 {
@@ -64,24 +64,24 @@ public:
     {
         Node *a = first;
         Node *b = second;
-        int n1 = 0,n2=0;
+        int n1 = 0, n2 = 0;
         while (a != NULL)
         {
             n1 = 10 * n1 + a->data;
         }
-        while(b!=NULL)
+        while (b != NULL)
         {
             n2 = 10 * n2 + b->data;
         }
         int n3 = n1 + n2;
-        while(n3!=0)
+        while (n3 != 0)
         {
             Node *p = new Node();
             p->data = n3 % 10;
             p->next = NULL;
-            if(third!=NULL)
+            if (third != NULL)
             {
-                third=tail3=p;
+                third = tail3 = p;
             }
             else
             {
@@ -90,29 +90,40 @@ public:
             }
             n3 = n3 / 10;
         }
-        return reverseLL(third);
+        reverseLL(third);
+        return third;
     }
 
-    Node * reverseLL(Node *p)
+    Node *reverseLL(Node *p)
     {
         Node *a = NULL;
         Node *b = p;
         Node *c = NULL;
-        while(a->next!=NULL)
+        while (a!=NULL)
         {
-            c = b->next;
-            b->next = a;
-            a = b;
-            b = c;
+                c = b->next;
+                b->next = a;
+                a = b;
+                b = c;  
         }
-        return a;
+        third = a;
     }
 };
+
+void printLL(Node *p)
+{
+    cout << "Linked list are" << endl;
+    while(p!=NULL)
+    {
+        cout << p->data << endl;
+        p = p->next;
+    }
+}
 
 int main()
 {
     createLL();
     createLL2();
     solution obj;
-    
+    printLL(obj.addTwoLists(head,head2));
 }
