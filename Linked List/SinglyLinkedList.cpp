@@ -7,6 +7,8 @@ public:
   node *NAdd;
 } *head = NULL, *tail = NULL;
 static int k=0;
+
+
 // Creating Linked list
 void createLinkedList()
 {
