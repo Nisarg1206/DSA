@@ -12,7 +12,7 @@ class Stack
         //Adding element
         int push(int a)
         {
-            if (size==top)
+            if (size-top==0)
             {
                 cout << "Stack is overflow" << endl;
             }
@@ -53,7 +53,7 @@ class Stack
 
 
       //Empty element
-      bool isEmpty()
+      void isEmpty()
       {
         if(top==-1)
         {
@@ -81,4 +81,21 @@ int main()
     cout << "What is size of stack??" << endl;
     cin >> n;
     Stack s(n);
+
+    for (int i = 0; i < n;i++)
+    {
+        int t;
+        cin >> t;
+        s.push(t);
+    }
+
+    s.pop();
+
+    s.peek();
+
+    s.isEmpty();
 }
+
+
+
+//time complexity is order of 1
