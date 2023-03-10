@@ -113,3 +113,6 @@ int main()
 
     s.isEmpty();
 }
+
+
+//time complexity is order of 1
