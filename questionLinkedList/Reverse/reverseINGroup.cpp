@@ -32,9 +32,10 @@ void createLL()
     }
 }
 
-node *reverseLLKGroup(node *head,int k)
+node *reverseLLKGroup(node *head, int k)
 {
-    int i = 0;if(head==NULL)
+    int i = 0;
+    if (head == NULL)
     {
         return NULL;
     }
@@ -47,7 +48,7 @@ node *reverseLLKGroup(node *head,int k)
         q = p;
         i++;
     }
-    if(p!=NULL)
+    if (p != NULL)
     {
         head->NAdd = reverseLLKGroup(p, k);
     }
@@ -70,6 +71,6 @@ int main()
     int k;
     cout << "Reverse in group of " << endl;
     cin >> k;
-    node *z = reverseLLKGroup(head,k);
+    node *z = reverseLLKGroup(head, k);
     printLL(z);
 }

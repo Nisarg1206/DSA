@@ -9,13 +9,14 @@ class Solution
         int a[n];
         for (int i = 0; i < n;i++)
         {
-            a[n] = input.top();
+            a[i] = input.top();
             input.pop();
         }
         input.push(bottom);
         for (int i = 0; i < n;i++)
         {
-            input.push(a[i]);
+            int t = a[i];
+            input.push(t); 
         }
     }
 };
@@ -29,4 +30,15 @@ int main()
     st.push(89);
     st.push(84);
 
+    int n;
+    cout << "Enter bottom value" << endl;
+    cin >> n;
+    Solution s;
+    cout << "New stack is" << endl;
+    s.insertAtBottom(st, n);
+    while(!st.empty())
+    {
+        cout << st.top() << endl;
+        st.pop();
+    }
 }

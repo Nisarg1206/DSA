@@ -12,6 +12,7 @@ class Solution
     {
         int arr[cnt];
         int i = 0;
+
         while (i < cnt)
         {
             int p = input.top();
@@ -28,7 +29,7 @@ class Solution
     }
 };
 int main()
-{
+{ 
     stack<int> st;
     st.push(5);
     st.push(12);
