@@ -118,6 +118,7 @@ int main()
 {
   createLinkedList();
   printLinkedList();
+  int n = sizeof(head);
   InsertNode();
   printLinkedList();
   deleteNode();

@@ -1,23 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class node
+class ListNode
 {
 public:
     int data;
-    node *next;
+    ListNode *next;
 };
 
-node *createLL()
+ListNode *createLL()
 {
     int d, t = 1;
-    node *head = NULL, *tail = NULL;
+    ListNode *head = NULL, *tail = NULL;
     while (t)
     {
         cout << "Enter data for Linked List" << endl;
         cin >> d;
 
-        node *p = new node();
+        ListNode *p = new ListNode();
         p->data = d;
         p->next = NULL;
 
@@ -30,14 +30,14 @@ node *createLL()
             tail->next = p;
             tail = tail->next;
         }
-        cout << "do you want to enter more node in LL" << endl;
+        cout << "do you want to enter more ListNode in LL" << endl;
         cin >> t;
     }
     return head;
 }
 
 // Printing Linked List
-void printLL(node *p)
+void printLL(ListNode *p)
 {
     cout << "Linked list are" << endl;
     while (p != NULL)
@@ -51,31 +51,31 @@ void printLL(node *p)
 class Solution
 {
 public:
-    node *mergeSortLL(node *&head)
+    ListNode *mergeSortLL(ListNode *&head)
     {
         if (head == NULL || head->next == NULL)
         {
             return head;
         }
 
-        node *mid = findMid(head);
+        ListNode *mid = findMid(head);
 
-        node *left = head;
-        node *right = mid->next;
+        ListNode *left = head;
+        ListNode *right = mid->next;
         mid->next = NULL;
 
         left = mergeSortLL(left);
         right = mergeSortLL(right);
 
-        node *result = merge(left, right);
+        ListNode *result = merge(left, right);
 
         return result;
     }
 
-    node *findMid(node *p)
+    ListNode *findMid(ListNode *p)
     {
-        node *slow = p;
-        node *fast = p;
+        ListNode *slow = p;
+        ListNode *fast = p;
 
         while (fast != NULL)
         {
@@ -94,15 +94,15 @@ public:
         return slow;
     }
 
-    node *merge(node *left, node *right)
+    ListNode *merge(ListNode *left, ListNode *right)
     {
         if (left == NULL)
             return right;
         if (right == NULL)
             return left;
 
-        node *second = NULL;
-        node *temp;
+        ListNode *second = NULL;
+        ListNode *temp;
 
         while (left != NULL && right != NULL)
         {
@@ -157,13 +157,13 @@ public:
 int main()
 {
     // Cretaing LL
-    node *p = createLL();
+    ListNode *p = createLL();
 
     // printing LL
     printLL(p);
 
     Solution obj;
-    node *q = obj.mergeSortLL(p);
+    ListNode *q = obj.mergeSortLL(p);
 
     printLL(q);
 }
