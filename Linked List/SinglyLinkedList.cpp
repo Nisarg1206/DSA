@@ -6,8 +6,7 @@ public:
   int data;
   node *NAdd;
 } *head = NULL, *tail = NULL;
-static int k=0;
-
+static int k = 0;
 
 // Creating Linked list
 void createLinkedList()
@@ -81,8 +80,7 @@ void deleteNode()
   cin >> t;
   if (t == 1)
   {
-    b = b->NAdd;
-    head = b;
+    head = head->NAdd;
   }
   else
   {
@@ -94,7 +92,7 @@ void deleteNode()
       i++;
     }
     a->NAdd = b->NAdd;
-    if(a->NAdd==NULL)
+    if (a->NAdd == NULL)
     {
       tail = a;
     }

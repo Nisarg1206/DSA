@@ -34,25 +34,41 @@ void createLL()
 
 ListNode *reverseLLKGroup(ListNode *head, int k)
 {
-    int i = 0;
-    if (head == NULL)
+    if (k % 2 != 0)
     {
-        return NULL;
+        ListNode *q = head;
+        int i = 0;
+        while (q->next != NULL && i < k)
+        {
+            q = q->next;
+            i++;
+        }
+        if(q->next!=NULL)
+        q->next = reverseLLKGroup(q, k + 1);
+        return ;
     }
-    ListNode *p = NULL, *r = NULL, *q = head;
-    while (q != NULL && i < k)
+    else
     {
-        p = q->next;
-        q->next = r;
-        r = q;
-        q = p;
-        i++;
+        int i = 0;
+        if (head == NULL)
+        {
+            return NULL;
+        }
+        ListNode *p = NULL, *r = NULL, *q = head;
+        while (q != NULL && i < k)
+        {
+            p = q->next;
+            q->next = r;
+            r = q;
+            q = p;
+            i++;
+        }
+        if (p != NULL)
+        {
+            head->next = reverseLLKGroup(p, k + 2);
+        }
+        return r;
     }
-    if (p != NULL)
-    {
-        head->next = reverseLLKGroup(p, k+2);
-    }
-    return r;
 }
 
 void printLL(ListNode *p)
@@ -68,9 +84,6 @@ int main()
 {
     createLL();
     printLL(head);
-    int k;
-    cout << "Reverse in group of " << endl;
-    cin >> k;
-    ListNode *z = reverseLLKGroup(head, k);
+    ListNode *z = reverseLLKGroup(head, 1);
     printLL(z);
 }
