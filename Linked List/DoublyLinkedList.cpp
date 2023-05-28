@@ -19,7 +19,7 @@ void createLinkedList()
         node *p = new node();
         cin >> p->data;
         p->next = NULL;
-        p->prev = NULL;
+        p->prev = NULL; 
         if (head == NULL)
         {
             head = p;
@@ -85,10 +85,12 @@ void deleteNode()
     node *b = head, *a = NULL;
     if (t == 1)
     {
-        b = b->next;
-        b->prev = NULL;
-        free(head);
-        head = b;
+        head = head->next;
+        head->prev = NULL;
+        // b = b->next;
+        // b->prev = NULL;
+        // free(head);
+        // head = b;
     }
     else
     {
@@ -112,7 +114,7 @@ void deleteNode()
             b->prev = a;
         }
     }
-    cout << "End element is " << tail->data << endl;
+    // cout << "End element is " << tail->data << endl;
 }
 
 
