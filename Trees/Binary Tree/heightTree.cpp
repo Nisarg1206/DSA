@@ -19,10 +19,8 @@ int height(node *p)
     {
         x = height(p->left);
         y = height(p->right);
-        if(x>y)
-            return x + 1;
-        else
-            return y + 1;
+
+        return 1 + max(x, y);
     }
     return 0;
 }

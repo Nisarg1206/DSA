@@ -1,3 +1,24 @@
+/* degree 0 
+condition is 
+if(p->left==NULL && p->right==NULL)
+
+degree 2
+condition is 
+if(p->left!=NULL && p->right!=NULL)
+
+degree 1 
+if(p->left!=NULL ^ p->right!=NULL)
+
+degree 2 or 1
+condition is 
+if(p->left!=NULL || p->right!=NULL)
+
+
+all degree for
+no condition
+*/
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -47,25 +68,3 @@ int main()
     int p = count(root);
     cout << "No of Nodes in Binary tree is " << p << endl;
 }
-
-
-
-/* degree 0 
-condition is 
-if(p->left==NULL && p->right==NULL)
-
-degree 2
-condition is 
-if(p->left!=NULL && p->right!=NULL)
-
-degree 1 
-if(p->left!=NULL ^ p->right!=NULL)
-
-degree 2 or 1
-condition is 
-if(p->left!=NULL || p->right!=NULL)
-
-
-all degree for
-no condition
-*/
