@@ -19,7 +19,7 @@ int count(node *p)
     {
         x = count(p->left);
         y = count(p->right);
-        return x + y + 1;
+        return x + y + p->data;
     }
     return 0;
 }
