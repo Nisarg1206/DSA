@@ -77,7 +77,6 @@ vector<int> inorder(node *p)
     {
         if (p != NULL)
         {
-
             st.push(p);
             p = p->left;
         }

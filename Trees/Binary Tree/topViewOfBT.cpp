@@ -31,28 +31,27 @@ node *BuildTree(node *root)
     root->right = BuildTree(root->right);
 }
 
-
-//1st solution but way more space
-// vector<int> topOrder(node *root)
-// {
-//     map<int, map<int, unordered_set<int>>> m;
-//     queue<pair<node *, pair<int, int>>> q;
-//     q.push({root, {0, 0}});
-//     while (!q.empty())
-//     {
-//         auto p = q.front();
-//         q.pop();
-//         int x = p.second.first, y = p.second.second;
-//         m[x][y].insert(p.first->data);
-//         if (p.first->left != NULL)
-//         {
-//             q.push({p.first->left, {x - 1, y + 1}});
-//         }
-//         if (p.first->right != NULL)
-//         {
-//             q.push({p.first->right, {x + 1, y + 1}});
-//         }
-//     }
+// 1st solution but way more space
+//  vector<int> topOrder(node *root)
+//  {
+//      map<int, map<int, unordered_set<int>>> m;
+//      queue<pair<node *, pair<int, int>>> q;
+//      q.push({root, {0, 0}});
+//      while (!q.empty())
+//      {
+//          auto p = q.front();
+//          q.pop();
+//          int x = p.second.first, y = p.second.second;
+//          m[x][y].insert(p.first->data);
+//          if (p.first->left != NULL)
+//          {
+//              q.push({p.first->left, {x - 1, y + 1}});
+//          }
+//          if (p.first->right != NULL)
+//          {
+//              q.push({p.first->right, {x + 1, y + 1}});
+//          }
+//      }
 
 //     vector<int> ans;
 //     for (auto i : m)
@@ -67,32 +66,32 @@ node *BuildTree(node *root)
 //     return ans;
 // }
 
-vector<int>topOrder(node *root)
+vector<int> topOrder(node *root)
 {
     map<int, int> m;
-    queue<pair<node*, int>> q;
+    queue<pair<node *, int>> q;
     q.push({root, 0});
-    while(!q.empty())
+    while (!q.empty())
     {
         auto i = q.front();
         q.pop();
         int x = i.second;
-        if(m.find(i.second)==m.end())
+        if (m.find(i.second) == m.end())
         {
             m[x] = i.first->data;
         }
 
-        if(i.first->left!=NULL)
+        if (i.first->left != NULL)
         {
             q.push({i.first->left, x - 1});
         }
-        if(i.first->right!=NULL)
+        if (i.first->right != NULL)
         {
             q.push({i.first->right, x + 1});
         }
     }
     vector<int> ans;
-    for(auto i:m)
+    for (auto i : m)
     {
         ans.push_back(i.second);
     }
@@ -109,5 +108,5 @@ int main()
     }
 }
 
+// 1 2 3 -1 -1 7 11 -1 -1 -1 4 5 -1 -1 10 -1 -1
 
-//1 2 3 -1 -1 7 11 -1 -1 -1 4 5 -1 -1 10 -1 -1

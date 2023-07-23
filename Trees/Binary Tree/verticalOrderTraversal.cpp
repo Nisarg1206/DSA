@@ -31,37 +31,36 @@ node *BuildTree(node *root)
     root->right = BuildTree(root->right);
 }
 
-
-vector<vector<int>> verticalOrder(node *root)
+vector<int> verticalOrder(node *root)
 {
     map<int, map<int, multiset<int>>> m;
     queue<pair<node *, pair<int, int>>> q;
-    q.push({root,{0,0}});
+    q.push({root, {0, 0}});
     while (!q.empty())
     {
         auto p = q.front();
         q.pop();
-        int x = p.second.first,y=p.second.second;
+        int x = p.second.first, y = p.second.second;
         m[x][y].insert(p.first->data);
-        if(p.first->left!=NULL)
+        if (p.first->left != NULL)
         {
             q.push({p.first->left, {x - 1, y + 1}});
         }
-        if(p.first->right!=NULL)
+        if (p.first->right != NULL)
         {
             q.push({p.first->right, {x + 1, y + 1}});
         }
     }
 
-    vector<vector<int>> ans;
-    for(auto i:m)
+    vector<int> ans;
+    for (auto i : m)
     {
-        vector<int> temp;
-        for(auto t:i.second)
+        // vector<int> ans;
+        for (auto t : i.second)
         {
-            temp.insert(temp.end(), t.second.begin(), t.second.end());
+            ans.insert(ans.end(), t.second.begin(), t.second.end());
         }
-        ans.push_back(temp);
+        // ans.push_back(ans);
     }
     return ans;
 }
@@ -71,14 +70,14 @@ int main()
     node *root;
     root = BuildTree(root);
 
-    vector<vector<int>> v = verticalOrder(root);
+    vector<int> v = verticalOrder(root);
 
-    for (int i = 0; i < v.size();i++)
-    {
-        for (int j = 0; j < v[i].size(); j++)
-            cout << v[i][j] << " ";
-        cout << endl;
-    }
+    // for (int i = 0; i < v.size();i++)
+    // {
+    for (int j = 0; j < v.size(); j++)
+        cout << v[j] << " ";
+    cout << endl;
+    // }
 }
 
-//1 2 4 -1 5 -1 6 -1 -1 10 -1 -1 3 9 -1 -1 10 -1 -1
+// 1 2 4 -1 5 -1 6 -1 -1 10 -1 -1 3 9 -1 -1 10 -1 -1
